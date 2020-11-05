@@ -31,6 +31,17 @@ public class HW_2 {
         return arr;
     }
 
+    // Task 3
+    private  static  int[] multiplication(int[] arr) {
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] < 6) {
+                arr[i] = arr[i] * 2;
+            }
+        }
+        return  arr;
+    }
+
     public   static void main(String[] args) {
 
         // 1
@@ -46,6 +57,13 @@ public class HW_2 {
         int[] arr2 = new int[8];
         int[] arr2Result = arithmeticProgression(arr2);
         printArrayOneDimensional(arr2Result);
+
+        // 3
+        String multipleLines3 = System.lineSeparator() + "Task 3";
+        System.out.println(multipleLines3);
+        int[] arr3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        int[] arr3Result = multiplication(arr3);
+        printArrayOneDimensional(arr3Result);
     }
 
 }
