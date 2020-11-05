@@ -84,6 +84,24 @@ public class HW_2 {
         }
     }
 
+    // Task 6
+    private  static boolean equalParts(int[] arr) {
+        int a = 0;
+        int b = 0;
+        int i = 0;
+        int j = arr.length -1;
+        while (i <= j) {
+            if (a <= b) {
+                a += arr[i];
+                i++;
+            } else {
+                b += arr[j];
+                j--;
+            }
+         }
+        return (a == b);
+    }
+
     public   static void main(String[] args) {
 
         // 1
@@ -121,6 +139,12 @@ public class HW_2 {
         int[][] arr5 = new int[9][9];
         int[][] arr5Result = diagonalSquare(arr5);
         printArrayTwoDimensional(arr5Result);
+
+        // 6
+        String multipleLines6 = System.lineSeparator() + "Task 6";
+        System.out.println(multipleLines6);
+        int[] a = {3, 2, 2, 8, 27, 4, 2, 17, 2, 16, 1};
+        System.out.println(equalParts(a));
     }
 
 }
