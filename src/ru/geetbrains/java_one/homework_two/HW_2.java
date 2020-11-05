@@ -42,6 +42,29 @@ public class HW_2 {
         return  arr;
     }
 
+    // Task 4
+    private static float minNumber(float[] arr) {
+        float min = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            /*if (min > arr[i]) {
+                min = arr[i];
+            }*/
+            min = Math.min(min, arr[i]);
+        }
+        return min;
+    }
+
+    private static float maxNumber(float[] arr) {
+        float max = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            /*if (max < arr[i]) {
+                max = arr[i];
+            }*/
+            max = Math.max(max, arr[i]);
+        }
+        return max;
+    }
+
     public   static void main(String[] args) {
 
         // 1
@@ -64,6 +87,14 @@ public class HW_2 {
         int[] arr3 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
         int[] arr3Result = multiplication(arr3);
         printArrayOneDimensional(arr3Result);
+
+        //4
+        String multipleLines4 = System.lineSeparator() + "Task 4";
+        System.out.println(multipleLines4);
+        float[] arr4 = {3f, 7f, 17.3f, 6.8f, 9f, 1.2f, 1f, 0f, 8.4f, -28f, 4f, 2f};
+        float minArr4 = minNumber(arr4);
+        float maxArr4 = maxNumber(arr4);
+        System.out.println("min= " +minArr4 + "\nmax= " + maxArr4);
     }
 
 }
