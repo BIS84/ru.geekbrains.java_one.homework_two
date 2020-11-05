@@ -65,6 +65,25 @@ public class HW_2 {
         return max;
     }
 
+    // Task 5
+    private static int[][] diagonalSquare(int[][] arr) {
+        int j = arr.length - 1;
+        for (int i = 0; i <= j; i++) {
+            arr[i][i] = 1;
+            arr[i][j-i] = 1;
+        }
+        return arr;
+    }
+
+    private static void printArrayTwoDimensional(int[][] arr) {
+        for (int j = 0; j < arr.length; j++) {
+            for (int i = 0; i < arr[j].length; i++) {
+                System.out.print(arr[i][j] + "\t");
+            }
+            System.out.println();
+        }
+    }
+
     public   static void main(String[] args) {
 
         // 1
@@ -95,6 +114,13 @@ public class HW_2 {
         float minArr4 = minNumber(arr4);
         float maxArr4 = maxNumber(arr4);
         System.out.println("min= " +minArr4 + "\nmax= " + maxArr4);
+
+        // 5
+        String multipleLines5 = System.lineSeparator() + "Task 5";
+        System.out.println(multipleLines5);
+        int[][] arr5 = new int[9][9];
+        int[][] arr5Result = diagonalSquare(arr5);
+        printArrayTwoDimensional(arr5Result);
     }
 
 }
