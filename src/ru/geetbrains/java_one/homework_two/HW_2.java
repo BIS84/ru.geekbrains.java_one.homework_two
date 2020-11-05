@@ -102,6 +102,28 @@ public class HW_2 {
         return (a == b);
     }
 
+    // Task 7
+    private static int[] cyclicalDisplacement(int[] arr, int n) {
+
+        int[] arr2 = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            for (i = 0; i < arr.length; i++) {
+                int j = i + n;
+                if (j > arr.length - 1) {
+                    while (j > arr.length - 1) {
+                        j -= arr.length;
+                    }
+                } else if (j < 0) {
+                    while (j < 0) {
+                        j += arr.length;
+                    }
+                }
+                arr2[j] = arr[i];
+            }
+        }
+        return arr2;
+    }
+
     public   static void main(String[] args) {
 
         // 1
@@ -145,6 +167,14 @@ public class HW_2 {
         System.out.println(multipleLines6);
         int[] a = {3, 2, 2, 8, 27, 4, 2, 17, 2, 16, 1};
         System.out.println(equalParts(a));
+
+        // 7
+        String multipleLines7 = System.lineSeparator() + "Task 7";
+        System.out.println(multipleLines7);
+        int n = -3;
+        int[] arr7 = {1, 2, 3, 4, 5, 6, 7, 8};
+        int[] arr7Result = cyclicalDisplacement(arr7, n);
+        printArrayOneDimensional(arr7Result);
     }
 
 }
