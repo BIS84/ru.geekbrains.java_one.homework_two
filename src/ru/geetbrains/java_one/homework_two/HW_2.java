@@ -10,7 +10,7 @@ public class HW_2 {
     }
 
     // Task 1
-    private static int[] replaceOneWithZero(int[] arr) {
+    private static void replaceOneWithZero(int[] arr) {
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == 0) {
@@ -19,7 +19,6 @@ public class HW_2 {
                 arr[i] = 0;
             }
         }
-        return arr;
     }
 
     // Task 2
@@ -98,7 +97,7 @@ public class HW_2 {
                 b += arr[j];
                 j--;
             }
-         }
+        }
         return (a == b);
     }
 
@@ -125,7 +124,7 @@ public class HW_2 {
     }
 
     // Task 8
-    private static int[] cyclicalDisplacement2(int[] arr, int n) {
+    private static void cyclicalDisplacement2(int[] arr, int n) {
 
         if (n > arr.length - 1) {
             while (n > arr.length - 1) {
@@ -136,21 +135,34 @@ public class HW_2 {
                 n += arr.length;
             }
         }
-        int a = arr[0];
-        int k = 0;
-        for (int i = 0; i < arr.length - 1; i++) {
-            int j = k - n;
-            if (j > arr.length) {
-                j -= arr.length;
-            } else  if (j < 0) {
-                j += arr.length;
-            }
-            arr[k] = arr[j];
-            k = j;
+        int m;
+        if (n < 0) {
+            m = -1 * n;
+        } else {
+            m = n;
         }
-        arr[k] = a;
-        return  arr;
+
+        if (n >= 0) {
+            m = arr.length - m;
+        }
+        for (int k = 0; k < m; k++) {
+            for (int i = 0; i < arr.length - 1; i++) {
+
+                int j;
+                j = i + 1;
+                if (j > arr.length - 1) {
+                    j -= arr.length;
+                }
+                int a = arr[i];
+                arr[i] = arr[j];
+                arr[j] = a;
+            }
+        }
     }
+
+
+    // Check
+
 
     public   static void main(String[] args) {
 
@@ -158,8 +170,8 @@ public class HW_2 {
         String multipleLines1 = System.lineSeparator() + "Task 1";
         System.out.println(multipleLines1);
         int[] arr1 = {1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 1};
-        int[] arr1Invert = replaceOneWithZero(arr1);
-        printArrayOneDimensional(arr1Invert);
+        replaceOneWithZero(arr1);
+        printArrayOneDimensional(arr1);
 
         // 2
         String multipleLines2 = System.lineSeparator() + "Task 2";
@@ -199,7 +211,7 @@ public class HW_2 {
         // 7
         String multipleLines7 = System.lineSeparator() + "Task 7";
         System.out.println(multipleLines7);
-        int n = -3;
+        int n = -9;
         int[] arr7 = {1, 2, 3, 4, 5, 6, 7, 8};
         int[] arr7Result = cyclicalDisplacement(arr7, n);
         printArrayOneDimensional(arr7Result);
@@ -207,8 +219,8 @@ public class HW_2 {
         // 8
         String multipleLines8 = System.lineSeparator() + "Task 8";
         System.out.println(multipleLines8);
-        int[] arr8Result = cyclicalDisplacement2(arr7, n);
-        printArrayOneDimensional(arr8Result);
+        cyclicalDisplacement2(arr7, n);
+        printArrayOneDimensional(arr7);
     }
 
 }
